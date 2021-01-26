@@ -1,5 +1,4 @@
-// Video
-let video;
+// Audio
 let label = "Cargando...";
 let classifier;
 let modelURL = 'https://teachablemachine.withgoogle.com/models/_gYqCit1X/;
@@ -22,7 +21,7 @@ function classifyAudio() {
   classifier.classify(gotResults);
 }
 
-// Agregar los emojis a los frames en el video
+// Agregar los emojis a los frames en el audio
 function draw() {
   background(0);
 
