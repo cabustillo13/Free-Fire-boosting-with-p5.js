@@ -2,34 +2,29 @@
 let video;
 let label = "Cargando...";
 let classifier;
-let modelURL = 'https://teachablemachine.withgoogle.com/models/o40lbRfVd/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/_gYqCit1X/;
 
 // 1. Cargar el video
 function preload() {
-  classifier = ml5.imageClassifier(modelURL + 'model.json');
+  classifier = ml5.soundClassifier(modelURL + 'model.json');
 }
 
 // Definir el entonrno
 function setup() {
   createCanvas(640, 520);
-  // Crear el video
-  video = createCapture(VIDEO);
-  video.hide();
+  
   // Empezar a clasificar
-  classifyVideo();
+  classifyAudio();
 }
 
-// 2. Clasificar los frames del video
-function classifyVideo() {
-  classifier.classify(video, gotResults);
+// 2. Clasificar los dataframes del audio
+function classifyAudio() {
+  classifier.classify(gotResults);
 }
 
 // Agregar los emojis a los frames en el video
 function draw() {
   background(0);
-
-  // Arrancar con el video
-  image(video, 0, 0);
 
   // 3. Agregar las etiquetas
   textSize(32);
@@ -37,13 +32,17 @@ function draw() {
   fill(255);
   text(label, width / 2, height - 16);
 
-  // 4. Tomar un emoji, por defecto el emoji de Kla
-  let emoji = "🤜";
-  if (label == "Kelly") {
-    emoji = "👩🏽‍🚀";
-  } else if (label == "Miguel") {
-    emoji = "👨🏾‍✈️";
-  } 
+  // 4. Definir los labels, por defecto esta el label Ruido de fondo
+  let emoji = "🔊";
+  if (label == "Desert Eagle") {
+    emoji = "😱";
+  } else if (label == "USP") {
+    emoji = "👻";
+  } else if (label == "G18") {
+    emoji = "😓";
+  } else if (label == "M500") {
+    emoji = "🖖";
+  }
 
   // Dibujar el emoji
   textSize(256);
@@ -59,5 +58,4 @@ function gotResults(error, results) {
   }
   // Guarda la etiqueta y siga clasificando.
   label = results[0].label;
-  classifyVideo();
 }
