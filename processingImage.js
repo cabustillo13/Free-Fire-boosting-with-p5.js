@@ -2,7 +2,7 @@
 let video;
 let label = "Cargando...";
 let classifier;
-let modelURL = 'https://storage.googleapis.com/tm-models/YadBJmj5/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/o40lbRfVd/';
 
 // 1. Cargar el video
 function preload() {
