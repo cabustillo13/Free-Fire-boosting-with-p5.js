@@ -1,7 +1,7 @@
 // Audio
 let label = "Cargando...";
 let classifier;
-let modelURL = 'https://teachablemachine.withgoogle.com/models/_gYqCit1X/;
+let modelURL = 'https://teachablemachine.withgoogle.com/models/_gYqCit1X/';
 
 // 1. Cargar el video
 function preload() {
